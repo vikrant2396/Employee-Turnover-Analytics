@@ -139,8 +139,4 @@ This will:
 
 For questions about this analysis, please contact the HR Analytics team.
 
----
-
-**Project Status:**  COMPLETE  
-**Analysis Date:** January 31, 2026  
-**ML Developer:** Claude
+-
