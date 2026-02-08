@@ -1,142 +1,92 @@
-# Employee Turnover Prediction - Project Deliverables
+# Employee Turnover Analytics
 
-##  Project Structure
+Machine learning project to predict employee turnover and recommend retention strategies.
 
-This folder contains all deliverables for the Portobello Tech Employee Turnover Prediction project.
+## Overview
 
-### Main Files
+This project helps HR departments identify employees at risk of leaving and provides actionable retention strategies based on work patterns, satisfaction levels, and performance metrics.
 
-1. **PROJECT_REPORT.md** - Comprehensive 15-section project report covering:
-   - Executive summary with key achievements
-   - Data quality assessment
-   - Exploratory data analysis findings
-   - Clustering analysis results
-   - Model performance evaluation
-   - 7 targeted retention strategies
-   - Implementation roadmap
-   - ROI projections ($16-29M annual savings)
+## Dataset
 
-2. **employee_turnover_analysis.py** - Complete Python script with:
-   - Data loading and quality checks
-   - Full exploratory data analysis
-   - K-Means clustering implementation
-   - Manual SMOTE implementation for class balancing
-   - 6 ML models with 5-fold cross-validation
-   - Model evaluation and comparison
-   - Automated visualization generation
-   - Retention strategy identification
+- **Records**: 14,999 employees
+- **Features**: 10 (satisfaction, evaluation, projects, hours, salary, etc.)
+- **Target**: Employee left (1) or stayed (0)
 
-### Visualizations Folder (11 charts)
 
-**Data Exploration:**
-1. `01_turnover_distribution.png` - Employee turnover distribution
-2. `02_correlation_matrix.png` - Feature correlation heatmap
-3. `03_feature_distributions.png` - Feature distributions by turnover status
-4. `04_satisfaction_vs_evaluation.png` - Satisfaction vs evaluation scatter plot
-5. `05_dept_salary_analysis.png` - Turnover rates by department and salary
+## Key Features
 
-**Clustering Analysis:**
-6. `06_clustering_metrics.png` - Elbow method and silhouette scores
-7. `07_clustering_visualization.png` - K-Means cluster visualization
+- Exploratory Data Analysis with visualizations
+- K-Means clustering of employees who left
+- SMOTE for handling class imbalance
+- Multiple ML models with 5-fold cross-validation
+- Risk-based employee categorization
+- Targeted retention strategies
 
-**Model Performance:**
-8. `08_cv_performance.png` - Cross-validation comparison
-9. `09_model_comparison.png` - Model metrics comparison (4 metrics)
-10. `10_best_model_evaluation.png` - Confusion matrix and ROC curve
-11. `11_feature_importance.png` - Feature importance rankings
+## Installation
 
-##  Key Results
-
-- **Best Model:** Random Forest
-- **Accuracy:** 98.33%
-- **F1-Score:** 96.42%
-- **ROC-AUC:** 99.23%
-
-##  Top Findings
-
-1. **Satisfaction level** is the strongest predictor (-0.388 correlation)
-2. Employees with **>5 projects** have 63.7% turnover rate
-3. **3-5 year tenure** employees are at highest risk
-4. **Low satisfaction employees** (<0.4) have 53.7% turnover rate
-5. Three distinct employee clusters identified requiring different interventions
-
-##  Business Impact
-
-**Projected Annual Savings:**
-- Conservative (25% reduction): $16.1M
-- Moderate (35% reduction): $22.5M
-- Optimistic (45% reduction): $28.9M
-
-**ROI:** 400-1000% after implementation costs
-
-##  Quick Start
-
-### To Run the Analysis:
 ```bash
-python employee_turnover_analysis.py
+pip install pandas numpy scikit-learn matplotlib seaborn imbalanced-learn
 ```
 
-This will:
-- Load and analyze the HR data
-- Generate all 11 visualizations
-- Train and evaluate 6 ML models
-- Output comprehensive results to console
+## Usage
 
-### Requirements:
-- Python 3.x
-- pandas, numpy, matplotlib, seaborn
-- scikit-learn
-- openpyxl (for Excel file reading)
+```python
+# Run the Jupyter notebook
+jupyter notebook Employee_Turnover_Analytics_Part1.ipynb
+```
 
-##  Project Tasks Completed
+## Models Trained
 
- **Task 1:** Data quality check - Zero missing values detected  
- **Task 2:** Exploratory data analysis - 11 visualizations created  
- **Task 3:** Clustering analysis - K-Means with k=3 optimal clusters  
- **Task 4:** Class imbalance handling - SMOTE implementation (manual)  
- **Task 5:** K-fold cross-validation - 5-fold stratified CV on 6 models  
- **Task 6:** Best model identification - Random Forest with F1-Score justification  
- **Task 7:** Retention strategies - 7 comprehensive strategies developed  
+1. **Logistic Regression** - Baseline model
+2. **Random Forest** - Ensemble method
+3. **Gradient Boosting** - Best performer
 
-##  Implementation Roadmap
+## Results
 
-**Immediate (0-3 months):**
-- Deploy predictive model
-- Identify top 500 at-risk employees
-- Begin workload rebalancing
+Models evaluated using:
+- Accuracy, Precision, Recall, F1-Score
+- ROC-AUC curves
+- Confusion matrices
 
-**Short-term (3-6 months):**
-- Launch satisfaction surveys
-- Implement project management improvements
-- Start leadership development programs
+**Best Model**: Gradient Boosting (highest ROC-AUC)
 
-**Long-term (6-12 months):**
-- Build comprehensive engagement programs
-- Create predictive analytics dashboard
-- Establish sustainable retention culture
+**Key Metric**: Recall (minimize missed at-risk employees)
 
-##  Technical Details
+## Retention Strategy Framework
 
-**Data:**
-- 14,999 employee records
-- 10 features (8 numerical, 2 categorical)
-- 23.81% turnover rate
+Employees categorized into 4 risk zones based on turnover probability:
 
-**Models Evaluated:**
-- Logistic Regression
-- Decision Tree
-- Random Forest  (Selected)
-- Gradient Boosting
-- K-Nearest Neighbors
-- Support Vector Machine
+| Zone | Risk Level | Probability | Action |
+|------|-----------|-------------|---------|
+| Green | Safe | < 20% | Maintain engagement |
+| Yellow | Low | 20-60% | Proactive monitoring |
+| Orange | Medium | 60-90% | Immediate intervention |
+| Red | High | > 90% | Emergency retention plan |
 
-**Validation:**
-- 80/20 train-test split
-- 5-fold stratified cross-validation
-- SMOTE for class balancing
+## Key Insights
 
-##  Contact
+**Top turnover factors**:
+- Low satisfaction level
+- Extreme workload (too few or too many projects)
+- Long working hours (>250/month)
+- Low salary
+- Time in company (peak at 3-4 years)
 
-For questions about this analysis, please contact the HR Analytics team.
+## Project Structure
 
--
+```
+├── Employee_Turnover_Analytics_Part1.ipynb
+├── hr_comma_sep.xlsx
+└── README.md
+```
+
+## Technologies
+
+- Python 3.8+
+- Pandas, NumPy
+- Scikit-learn
+- Matplotlib, Seaborn
+- Imbalanced-learn (SMOTE)
+
+
+⭐ Star this repo if you found it helpful!
