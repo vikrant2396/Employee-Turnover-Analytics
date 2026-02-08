@@ -88,5 +88,4 @@ Employees categorized into 4 risk zones based on turnover probability:
 - Matplotlib, Seaborn
 - Imbalanced-learn (SMOTE)
 
-
-⭐ Star this repo if you found it helpful!
+---
